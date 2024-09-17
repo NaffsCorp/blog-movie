@@ -1,0 +1,35 @@
+body {
+  background-color: #ecdfcc;
+}
+
+nav {
+  background-color: #fff4ea;
+  margin: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+table thead tr {
+  text-align: center;
+}
+
+table tbody tr {
+  text-align: center;
+}
+
+.nav-link {
+  color: black;
+}
+
+.title {
+  padding: 2rem;
+}
+
+.form {
+  padding-bottom: 3rem;
+}
+
+.table {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
