@@ -10,6 +10,7 @@ CREATE TABLE movie (
     konten TEXT NOT NULL,
     overview TEXT NOT NULL,
     penulis VARCHAR(100) NOT NULL,
+    thumbnail VARCHAR(100) NOT NULL,
     category_id INT(11) NOT NULL,
     rilis INT(4) NOT NULL,
     CONSTRAINT fk_category_movie FOREIGN KEY (category_id) REFERENCES category(id)

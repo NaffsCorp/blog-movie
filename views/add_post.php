@@ -1,7 +1,7 @@
 <?php
 include '../config/database.php';
 
-$data_kategori = show_data("SELECT kategori FROM category ORDER BY id ASC");
+$data_kategori = show_data("SELECT * FROM category ORDER BY id ASC");
 
 ?>
 
@@ -21,7 +21,7 @@ $data_kategori = show_data("SELECT kategori FROM category ORDER BY id ASC");
     <div class="container">
         <h1 class="text-left title">Add Post</h1>
         <div class="form">
-            <form class="row g-3" action="../controllers/add_controller.php" method="POST">
+            <form class="row g-3" action="../controllers/add_controller.php" method="POST" enctype="multipart/form-data">
                 <div class="col-md-6">
                     <label for="judul" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="judul" name="judul">
@@ -38,7 +38,7 @@ $data_kategori = show_data("SELECT kategori FROM category ORDER BY id ASC");
                     <label for="overview">Overview</label>
                     <textarea class="form-control" rows="5" id="overview" name="overview"></textarea>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="penulis" class="form-label">Penulis</label>
                     <input type="text" class="form-control" id="penulis" name="penulis">
                 </div>
@@ -48,14 +48,18 @@ $data_kategori = show_data("SELECT kategori FROM category ORDER BY id ASC");
                         <option selected>Choose...</option>
                         <?php foreach ($data_kategori as $data) : ?>
                             <?php $i = 1; ?>
-                            <option for="<?= $data['kategori'] ?>" id="<?= $data['kategori'] ?>" name="<?= $data['kategori'] ?>"><?= $data['kategori'] ?></option>
+                            <option for="<?= $data['kategori'] ?>" id="<?= $data['kategori'] ?>" name="<?= $data['kategori'] ?>" value="<?= $data['id'] ?>"><?= $data['kategori'] ?></option>
                             <?php $i++ ?>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label for="rilis" class="form-label">Tahun Rilis</label>
-                    <input type="text" class="form-control" id="rilis" name="rilis">
+                    <input type="number" class="form-control" id="rilis" name="rilis">
+                </div>
+                <div class="col-md-3">
+                    <label for="thumbnail" class="form-label">Thumbnail</label>
+                    <input type="file" class="form-control" id="thumbnail" name="thumbnail">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Post</button>
